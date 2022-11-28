@@ -33,7 +33,7 @@ public class GuidParameterFilter : IParameterFilter
 {
     public void Apply(OpenApiParameter parameter, ParameterFilterContext context)
     {
-        if (context.PropertyInfo == null && parameter.Schema.Type == "string"
+        if (context.PropertyInfo is null && parameter.Schema.Type == "string"
             && (context.ApiParameterDescription.Type == typeof(Guid) || context.ApiParameterDescription.Type == typeof(Guid?)))
         {
             parameter.Schema.Format = "uuid";
